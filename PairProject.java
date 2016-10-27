@@ -8,43 +8,46 @@ public class PairProject {
 		System.out.println("Welcome to the Squares and Cubes Table");
 		//Instantiate a scanner
 		Scanner scan = new Scanner(System.in);
-		String answer = "yes";
+		Scanner answer = new Scanner(System.in);
 				
-		//promt the user to enter an integer (1-100)
-		System.out.println("Please enter a number from 1 to 100:");
-		
-		//Change user input to int
-		int input = scan.nextInt();
-		input = input + 1;
-		//initialize variables
+		//Initialize variables
 		int square = 0;
 		int cube = 0;
 		int count = 1;
+		String proceed = "yes";
+		
+		//Start While and For loops
+		while(proceed.equalsIgnoreCase("yes")) {
+			
+			//promt the user to enter an integer (1-100)
+			System.out.println("Please enter a number from 1 to 100:");
+			int input = scan.nextInt();
+							
+		//Create table headsers
 		System.out.println("Number" + "    " + "     Squared" + "    " + "      Cubed");
 		System.out.println("===========" + "    " + "=============" + "    " + "=====");
+				
+			for (count = 1; count < input + 1; count++) {
+				//Perform computation for square and cube
+				square = count * count;
+				cube = count * count * count;
 		
-		// Start Loops
-		while(answer.equalsIgnoreCase("yes")) {
+				//display a table of square and cubes from 1 to the value entered
+				System.out.println(count + "\t" + "\t" + square + "\t" + "\t" + cube);
+				//ask the user if they want to continue
 			
-			for (count = 1; count < input; count++) 
-		//Perform computation for square and cube
-			square = count * count;
-			cube = count * count * count;
-		
-		//display a table of square and cubes from 1 to the value entered
-			System.out.println(count + "\t" + "\t" + square + "\t" + "\t" + cube);
-		
 		}
-		//ask the user if they want to continue	
-		System.out.println("Would you like to build another table? Yes or No?");
-		
-		// Wait for user Entry
-		answer = scan.next();
-		
-			}
+				//Ask for continuation
+				System.out.println("Would you like to create another table? Yes or No?");
+				// Wait for user Entry
+				proceed = answer.next();
+		}
+			System.out.println("I'm glad I could show you this informtaion, Have a great day!");
+			
+			//Close scanners
+			scan.close(); 
+			answer.close();
 	}
+		
+}
 	
-
-
-
-
